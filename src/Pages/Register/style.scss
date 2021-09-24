@@ -1,0 +1,16 @@
+.main-page{
+    display: flex;
+    height: 100%;
+
+    .left{
+        flex: 1;
+        height: 100%;
+        background-color: red;
+    }
+
+    .right{
+        width: 460px;
+        background-color: blue;
+        height: 100%;
+    }
+}
