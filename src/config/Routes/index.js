@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { Home, Login, Register } from '../../Pages'
+import { Login, Register, } from '../../Pages'
+import MainApp from '../../Pages/MainApp'
 
 const Routes = () => {
     return (
@@ -13,7 +14,7 @@ const Routes = () => {
                     <Register />
                 </Route>
                 <Route path="/">
-                    <Home />
+                    <MainApp />
                 </Route>
             </Switch>
         </Router>
