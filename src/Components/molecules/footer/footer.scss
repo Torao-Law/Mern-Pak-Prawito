@@ -1,0 +1,38 @@
+.footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    border-top: 1px solid #d3d3d3;
+
+    .logo{
+        height: 70px;
+        width: 70px;
+        object-fit: contain;
+    }
+
+    .social-wrapper {
+        display: flex;
+        .icon-wrapper{
+            margin: 0;
+            border-radius: 40px;
+            padding: 10px;
+            .icon-medsos{
+                height: 20px;
+                width: 20px;
+                object-fit: contain;
+            }
+        }
+    }
+}
+
+.copyright{
+    padding: 0px 10px 20px 10px;
+
+    p{
+        font-size: 16px;
+        text-align: center;
+        color: #d3d3d3;
+        margin: 0;
+    }
+}

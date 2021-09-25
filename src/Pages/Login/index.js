@@ -1,5 +1,5 @@
 import React from 'react'
-import { LoginBg } from '../../assets/image'
+import { LoginBg } from '../../assets/index.js'
 import { Button } from '../../Components/atoms'
 import { Input, Gap, Link } from '../../Components/'
 

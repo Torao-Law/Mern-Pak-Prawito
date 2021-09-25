@@ -1,5 +1,5 @@
 import React from 'react'
-import { RegisterBg } from '../../assets/image'
+import { RegisterBg } from '../../assets/index'
 import { Button } from '../../Components/atoms'
 import { Input, Gap, Link } from '../../Components/'
 import './style.scss'
