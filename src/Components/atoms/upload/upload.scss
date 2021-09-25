@@ -1,0 +1,11 @@
+.upload{
+    margin: 20px 0px;
+
+    .preview{
+        height: 200px;
+        width: 200px;
+        object-fit: cover;
+        display: block;
+        margin-bottom: 16px;
+    }
+}

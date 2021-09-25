@@ -2,18 +2,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #5C7AEA;
+    border-bottom: 1px solid #d3d3d3;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05);
     padding: 10px 40px;
 
     .logo-app{
         font-size: 20px;
         font-weight: bold;
-        color: white;
+        color: #5C7AEA;
         margin: 0;
     }
     .menu-item{
         font-size: 16px;
-        color: white;
+        color: grey;
         text-decoration: underline;
         cursor: pointer;
         margin: 0;

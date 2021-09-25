@@ -4,5 +4,8 @@
     flex-direction: column;
     .content-wrapper{
         flex: 1;
+        max-width: 1200px;
+        width: 100%;
+        margin: auto;
     }
 }

@@ -1,0 +1,20 @@
+.home-app-wrapper{
+    padding-top: 40px;
+    .create-wrapper{
+        width: 200px;
+        margin-right: 0;
+        margin-left: auto;
+    }
+
+    .content-wrapper{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .pagination{
+        width: 400px;
+        display: flex;
+        margin: auto;
+    }
+}
