@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {BlogItem, Button, Gap} from '../../Components'
 import './home.scss'
 import { useHistory } from 'react-router'
+import Axios from 'axios'
 
 const Home = () => {
+    // function untuk memanggil data api dari node js
+    useEffect(() => {
+        Axios.get('http://localhost:4000/v1/blog/posts') //memanggil data menggunakan library axios dengan method get dari nodeJS
+        .then(result => {
+            console.log('Data API :', result.data) //jika fungsi pemanggilan berhasil
+        })
+        .catch(err => {
+            console.log('err', err) //jika fungsi pemanggilan error
+        })
+    }, [])
+
     const history = useHistory();
 
     return (
