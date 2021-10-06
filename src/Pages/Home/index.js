@@ -2,8 +2,8 @@ import React, { useEffect } from 'react'
 import {BlogItem, Button, Gap} from '../../Components'
 import './home.scss'
 import { useHistory } from 'react-router'
-import Axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
+import { setDataBlog } from '../../config/redux/action/homeAction'
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -13,14 +13,7 @@ const Home = () => {
 
     // function untuk memanggil data api dari node js
     useEffect(() => {
-        Axios.get('http://localhost:4000/v1/blog/posts') //memanggil data menggunakan library axios dengan method get dari nodeJS
-        .then(result => {
-            const responseAPI = result.data; //variabel untuk menganti dataBLog
-            dispatch({type: 'UPDATE_DATA_BLOG', payload: responseAPI.data}) //cara memanggil state global
-        })
-        .catch(err => {
-            console.log('err', err) //jika fungsi pemanggilan error
-        })
+       dispatch(setDataBlog())
     }, [dispatch])
 
     const history = useHistory();
