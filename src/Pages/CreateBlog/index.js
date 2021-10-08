@@ -1,52 +1,33 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Button, Gap, Input, TextArea, Upload, Link } from '../../Components'
 import './createBlog.scss'
 import { useHistory } from 'react-router'
-import Axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux'
+import { setForm, setImgPreview, postToAPI } from '../../config/redux/action/createdBlogPostAction'
 
 const CreateBlog = () => {
+    const {form, imgReview} = useSelector(state => state.createdBlogPostReducer)
+    const {title, body} = form;
+    const dispatch = useDispatch();
     const history = useHistory();
-    const [title, setTitle] = useState('');
-    const [body, setBody] = useState('');
-    const [image, setImage] = useState('');
-    const [imagePreview, setImagePreview] = useState(null);
 
     const onSubmit = () => {
-        console.log('title : ', title)
-        console.log('body : ', body)
-        console.log('image : ', image)
-
-        const data = new FormData()
-        data.append('title', title)
-        data.append('body', body)
-        data.append('image', image)
-
-        Axios.post('http://localhost:4000/v1/blog/post', data, {
-            headers: {
-                'content-type': 'multipart/form-data'
-            }
-        })
-        .then(res => {
-            console.log('Upload Success : ', res)
-        })
-        .catch(err => {
-            console.log('err : ', err)
-        })
+        postToAPI(form)
     }
 
     const onImageUpload = (e) => {
         const file = e.target.files[0]
-        setImage(file);
-        setImagePreview(URL.createObjectURL(file));
+        dispatch(setForm('image', file));
+        dispatch(setImgPreview(URL.createObjectURL(file)));
     }
 
     return (
         <div className="create-blog">
             <Link title="Kembali" onClick={() => history.push('/')} />
             <p className="title">Create New Blog</p>
-            <Input label="Post Title" value={title} onChange={(e) => setTitle(e.target.value)}/>
-            <Upload onChange={(e) => onImageUpload(e)} img={imagePreview}/>
-            <TextArea value={body} onChange={(e) => setBody(e.target.value)}/>
+            <Input label="Post Title" value={title} onChange={(e) => dispatch(setForm('title', e.target.value))}/>
+            <Upload onChange={(e) => onImageUpload(e)} img={imgReview}/>
+            <TextArea value={body} onChange={(e) => dispatch(setForm('body', e.target.value))}/>
             <Gap height={20}/>
             <div className="button-action">
                 <Button title="Save" onClick={onSubmit}/>

@@ -32,8 +32,6 @@ const Home = () => {
         console.log(counter)
     }
 
-
-
     return (
         <div className="home-app-wrapper">
             <div className="create-wrapper">
