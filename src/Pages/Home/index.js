@@ -13,8 +13,6 @@ const Home = () => {
     // const {dataBlogs, name} = useSelector(state => state)
     const {dataBlog, page} = useSelector(state => state.homeReduser)
 
-    console.log(page)
-
     // function untuk memanggil data api dari node js
     useEffect(() => {
        dispatch(setDataBlog(counter))
@@ -24,12 +22,10 @@ const Home = () => {
 
     const previous = () => {
         setCounter(counter <= 1 ? 1 : counter - 1)
-        console.log(counter)
     }
 
     const next = () => {
         setCounter(counter === page.total_page ? page.total_page : counter + 1)
-        console.log(counter)
     }
 
     return (
@@ -40,7 +36,7 @@ const Home = () => {
             <Gap height={20}/>
             <div className="content-wrapper">
                 {dataBlog.map(blog => {
-                        return <BlogItem key={blog._id} image={`http://localhost:4000/${blog.image}`} title={blog.title} body={blog.body} name={blog.author.name} date={blog.createdAt}/>
+                        return <BlogItem key={blog._id} image={`http://localhost:4000/${blog.image}`} title={blog.title} body={blog.body} name={blog.author.name} date={blog.createdAt} _id={blog._id}/>
                     })
                 }
             </div>

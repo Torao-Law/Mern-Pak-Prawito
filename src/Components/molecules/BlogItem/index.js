@@ -5,7 +5,7 @@ import { useHistory } from 'react-router'
 
 const BlogItem = (props) => {
     const history = useHistory();
-    const {name, title, body, date, image} = props;
+    const {name, title, body, date, image, _id} = props;
 
     return (
         <div className="blog-item">
@@ -15,7 +15,7 @@ const BlogItem = (props) => {
                 <p className="author">{name} - {date}</p>
                 <p className="body">{body}</p>
                 <Gap height={20}/>
-                <Button title="Read More" onClick={() => history.push('/detail-blog')} />
+                <Button title="Read More" onClick={() => history.push(`/detail-blog/${_id}`)} />
             </div>
         </div>
     )
